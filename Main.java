@@ -4,39 +4,41 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Main {
-        //Declaration de variables => portée de classe
-       public static void main(String args[]){
-               /*
+public class Main 
+{
+	//Declaration de variables => portée de classe
+        public static void main(String args[])
+	{
+		/*
                 System.out.println("Bonjour à Tous"); 
-               System.out.println("les etudiants de la GLRS et MAE "); 
-               //Scanner clavier pour lire les données tapeés au clavier
-               Scanner clavier=new Scanner(System.in);
-               System.out.println("Veuillez saisir un Mot");
-               //Lire une donnée de type chaine 
-               String prenom=clavier.next();
-               System.out.println("Bonjour "+prenom); 
+		System.out.println("les etudiants de la GLRS et MAE "); 
+               	//Scanner clavier pour lire les données tapeés au clavier
+               	Scanner clavier=new Scanner(System.in);
+               	System.out.println("Veuillez saisir un Mot");
+               	//Lire une donnée de type chaine 
+               	String prenom=clavier.next();
+               	System.out.println("Bonjour "+prenom); 
                
-               //type primitifs ou de données  => int ,    float, double, char,      boolean 
-               //classes wappers ou Enveloppes => Integer, Float, Double, Character, Boolean
+               	//type primitifs ou de données  => int ,    float, double, char,      boolean 
+               	//classes wappers ou Enveloppes => Integer, Float, Double, Character, Boolean
                
-               System.out.println("Veuillez saisir un entier");
-               int x=clavier.nextInt();
-               System.out.println("Le nombre est "+x); 
+               	System.out.println("Veuillez saisir un entier");
+               	int x=clavier.nextInt();
+               	System.out.println("Le nombre est "+x); 
           
-             // Figure f=new Figure(); impossible car //Figure est classe Abstraite
+             	// Figure f=new Figure(); impossible car //Figure est classe Abstraite
 
                 Carre c=new Carre();
                 c.setLongueur(12);
                 System.out.println("La Longueur est "+                     c.getLongueur());
-                 //Surcharge
+                //Surcharge
                 Carre c1=new Carre(15);
                 System.out.println("La Longueur est "+                     c1.getLongueur());
-                 System.out.println("Le Demi Perimetre est "+                     c1.demiPerimetre());
-                 System.out.println("Le Perimetre est "+                     c1.perimetre());
-            System.out.println("La Surface est "+                     c1.surface());
-            System.out.println("La Diagonale est "+                     c1.diagonale());
-   */
+                System.out.println("Le Demi Perimetre est "+                     c1.demiPerimetre());
+                System.out.println("Le Perimetre est "+                     c1.perimetre());
+            	System.out.println("La Surface est "+                     c1.surface());
+            	System.out.println("La Diagonale est "+                     c1.diagonale());
+   		*/
 int choix;
 Carre carre= new Carre();
 Rectangle rectangle = new Rectangle();

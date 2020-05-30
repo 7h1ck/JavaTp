@@ -1,102 +1,62 @@
-import java.time.LocalDate;
 import java.util.Scanner;
-import java.util.ArrayList;
-public class Main 
-{
-	public static void main(String args[])
-	{
-		Scanner clavier=new Scanner(System.in);
-		int choix, annee,i,id;
-		String Classe,tuteur,nomComplet,nomClasse;
-		//Classe classe=new Classe();
-		ArrayList<Classe> classes = new ArrayList<Classe>();
-		do
-		{
-			System.out.println("1- Créer Classe");
-			System.out.println("2- Lister Classe");
-			System.out.println("3- Inscrire Etudiant dans une classe");
-			System.out.println("4- Afficher les Etudiant d'une classe");
-			System.out.println("5- Affecter les professeurs à une classe");
-			System.out.println("6- Afficher les professeurs à une classe");
-		
-			System.out.println("7- Quitter");
-			System.out.println("Faites votre choix");
-			choix=clavier.nextInt();
 
-         		switch(choix)
-			{
-			case 1:
-				System.out.print("Veuillez saisir le nom");
-				nomClasse=clavier.nextLine();
-				Classe classe=new Classe(nomClasse);
-				classes.add(classe);
-			break;
-			case 2:
-				for(Classe c: classes)
-				{
-					c.affiche();
-				}
-			break;
-			case 3:		
-				System.out.println("nomComplet");	
-				nomComplet=clavier.nextLine();
-				//System.out.println("Choisissez la classe");
-				LocalDate dateNaiss = LocalDate.now();
-				System.out.println("tuteur");
-				tuteur=clavier.nextLine();
-				System.out.println("Classe");
-                  		Classe=clavier.nextLine();
-                  		System.out.println("Année");
-                  		annee=clavier.nextInt();
-				Etudiant Et = new Etudiant(nomComplet,dateNaiss,tuteur,annee);
-				System.out.println("Choisissez la classe");
-         			i=1;
-				for(Classe c: classes)
-				{
-					System.out.print(i);
-					c.affiche();
-				}
-				id=clavier.nextInt();
-				Et.setClasseEtu(classes.get(id));
-				classes.get(id).addEtudiant(Et);
-			break;
-			case 4:
-				System.out.println("Choisissez la classe");
-         			i=1;
-				for(Classe c: classes)
-				{
-					//System.out.print(i);
-					c.affiche();
-				}
-				id=clavier.nextInt();
-				tabEt = classes.get(id).getTabEtudiant();
-				for(Etd e: tabEt)
-				{
-					e.affiche();
-				}
-			break;
-			default:
-			break;       
-			}
-		}while(choix!=7);
+public class Main {
 
-	}
+
+public static void main(String[] args) {
+String choix;
+     Scanner clavier=new Scanner(System.in);
+     Service service =new Service();
+    do {
+
+        System.out.println("1-Creer Classe");
+        System.out.println("2-Afficher Classe ");
+        System.out.println("3-Inscrire etudiant");
+        System.out.println("4-Affecter professeur ");
+        System.out.println("5-Quitter");
+        System.out.println("Faites votre choix");
+        choix=clavier.nextLine();
+        switch(choix){
+            case "1":
+            System.out.println("Entrer le libelle de la Classe");
+               String libelle =clavier.nextLine();
+               Classe cl=new Classe(libelle);
+               service.creerClasse(cl);
+            break;
+
+            case "2":
+
+            service.listerClasse();
+            break;
+
+            case "3":
+            // Inscription
+            System.out.println("Entrer le nom complet ");
+               String nomComplet =clavier.nextLine();
+            System.out.println("Entrer la date de naissance");
+            int dateNaiss =clavier.nextInt();
+            System.out.println("Entrer le tuteur");
+               String tuteur =clavier.nextLine();
+            System.out.println("Entrer l annee");
+               int annee =clavier.nextInt();
+
+               Etudiant et = new Etudiant(nomComplet,dateNaiss,tuteur,annee);
+            service.ajouterPersonne(et);
+
+            // Affectation
+            service.listerClasse();
+            System.out.println("Entrer l ID de la classe ");
+              int  idClasse =clavier.nextInt();
+              service.affecterEt(et,idClasse);
+            break;
+            default :
+            break;
+
+        }
+        
+    } while (choix!="5");
+
+        
 }
-
-
-
-
-/*Portée block
- {
-    int var1=2;
-    {
-       int var2;
-      //Possible
-       int s=var1+var2;
-    }
-      //Impossible
-       int s=var1+var2;//var2 n'existe pas dans ce bloc
- }
-*/
-
-
+    
+}

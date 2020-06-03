@@ -3,8 +3,8 @@ import java.time.LocalDate;
 public class Professeur extends Personne {
 
 
-    private String tuteur;
-    private int annee;
+    private String matiere;
+    private Classe[] classes;
 
     //Propriété navigationnelle
      
@@ -16,13 +16,15 @@ public class Professeur extends Personne {
       //Surcharge du Contructeur
          //Creer un Objet puis de l'initialiser
           public Professeur(String nomComplet,
-               int dateNaiss,String tuteur,int annee ){
+               LocalDate dateNaiss,String matiere){
             //Initialisation de la personne
               super(nomComplet,dateNaiss);
-             this.tuteur=tuteur;
-             this.annee=annee;
+             this.matiere=matiere;
           }
 
+          public void affecter(Classe c){
+            this.classes[0] = c;
+         }
    //Getters and Setters
       
    //redefinition de la methode affiche()
@@ -31,8 +33,7 @@ public class Professeur extends Personne {
     public String affiche(){
     //super signifie personne
     //this signifie etudiant
-       return super.affiche() +" Tuteur : "+tuteur 
-                     +" Annee "+annee;
+       return super.affiche() +" matiere : "+matiere;
     }
 
 }

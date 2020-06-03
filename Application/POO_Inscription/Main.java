@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -33,13 +34,17 @@ String choix;
             // Inscription
             System.out.println("Entrer le nom complet ");
                String nomComplet =clavier.nextLine();
-            System.out.println("Entrer la date de naissance");
-            int dateNaiss =clavier.nextInt();
-            System.out.println("Entrer le tuteur");
+               System.out.println("Entrer le tuteur");
                String tuteur =clavier.nextLine();
-            System.out.println("Entrer l annee");
+               System.out.println("Entrer l annee d Etude");
                int annee =clavier.nextInt();
-
+               System.out.println("Entrer le jour de naissance");
+               int j =clavier.nextInt();
+               System.out.println("Entrer le mois de naissance");
+               int m =clavier.nextInt();
+               System.out.println("Entrer le Anne de naissance");
+               int a =clavier.nextInt();
+               LocalDate dateNaiss = LocalDate.of(a, m, j);
                Etudiant et = new Etudiant(nomComplet,dateNaiss,tuteur,annee);
             service.ajouterPersonne(et);
 
@@ -50,11 +55,11 @@ String choix;
               service.affecterEt(et,idClasse);
             break;
             default :
-            break;
+            System.out.println("Erreur de choix");
 
         }
         
-    } while (choix!="5");
+    } while (!choix.equals("5"));
 
         
 }

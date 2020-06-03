@@ -5,6 +5,7 @@ public class Etudiant extends Personne {
 
     private String tuteur;
     private int annee;
+    private Classe classe;
 
     //Propriété navigationnelle
      
@@ -16,7 +17,7 @@ public class Etudiant extends Personne {
       //Surcharge du Contructeur
          //Creer un Objet puis de l'initialiser
           public Etudiant(String nomComplet,
-               int dateNaiss,String tuteur,int annee ){
+               LocalDate dateNaiss,String tuteur,int annee ){
             //Initialisation de la personne
               super(nomComplet,dateNaiss);
              this.tuteur=tuteur;
@@ -24,7 +25,9 @@ public class Etudiant extends Personne {
           }
 
    //Getters and Setters
-      
+   public void affecter(Classe c){
+      this.classe = c;
+   }
    //redefinition de la methode affiche()
 
     @Override

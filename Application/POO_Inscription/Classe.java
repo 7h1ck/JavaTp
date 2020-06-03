@@ -1,6 +1,7 @@
 public class Classe implements IInscription{
 
    //Auto généré
+   protected static int gid=0;
     private int id;
     private String nom;
     private Etudiant[] tabEtudiant;
@@ -16,6 +17,8 @@ public class Classe implements IInscription{
     public Classe(){
        tabEtudiant = new Etudiant[TAILLE];
        tabProfesseur = new Professeur[TAILLE];
+       Classe.gid++;
+       this.id=Classe.gid;
 
     }
 
@@ -23,6 +26,8 @@ public class Classe implements IInscription{
        this.nom=nom;
        tabEtudiant = new Etudiant[10];
        tabProfesseur = new Professeur[10];
+       Classe.gid++;
+       this.id=Classe.gid;
    }
 
 
@@ -62,7 +67,7 @@ public class Classe implements IInscription{
 
     @Override
     public String affiche(){
-       return "Id: "+id+" Nom : "+nom;
+       return "Id: "+this.id+" Nom : "+nom;
     }
 
 }

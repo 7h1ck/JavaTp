@@ -11,10 +11,10 @@ public abstract class Personne implements IInscription{
 
     public Personne (String nomComplet,
                LocalDate dateNaiss){
-	id++;
+   Personne.gid++;
 	this.id=Personne.gid;
       this.nomComplet=nomComplet;
-      this.dateNaiss=dateNaiss.now();
+      this.dateNaiss=dateNaiss;
      //Initialisé ID
        this.age=calculAge();
 
@@ -22,11 +22,11 @@ public abstract class Personne implements IInscription{
 
       public Personne (){
         //Initialisé ID
+        Personne.gid++;
         this.id=Personne.gid;
     }
 
    //Getters and Setters
-
 
 
    //redefinition de la methode affiche()
@@ -37,7 +37,7 @@ public abstract class Personne implements IInscription{
     }
 
    private int calculAge(){
-      return 0;
+      return this.dateNaiss.getYear() - LocalDate.now().getYear();
    }
 
 }

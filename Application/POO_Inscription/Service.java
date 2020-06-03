@@ -29,7 +29,7 @@ public class Service {
     }
     public void listerClasse(){
         for(int i=0;i<nbreClasse;i++){
-            tabclasse[i].affiche();
+            System.out.println(tabclasse[i].affiche());
         }
         
     }
@@ -48,16 +48,18 @@ public class Service {
         for(Classe cl: tabclasse){
             System.out.println("==========("+cl.getNom()+")==========");
             cl.listerEtudiant();
+            System.out.println("=================(Fin)===================");
+            System.out.println();
         }
     }
 
     public void affecterEt(Etudiant e,int id){
-        e.inscrir(tabclasse[id]);
+        e.affecter(tabclasse[id]);
         tabclasse[id].addEtudiant(e);
     }
 
     public void affecterPr(Professeur p,int id){
-        p.inscrir(tabclasse[id]);
+        p.affecter(tabclasse[id]);
         tabclasse[id].addProfesseur(p);
     }
 

@@ -1,66 +1,51 @@
+import java.util.ArrayList;
+
 public class Service {
 
-     //Taille Reservation :nbre Cellule du Tableau
-      final int TAILLE=10;
-    //Taille Réélle :nbre element du Tableau
-      private int nbreClasse=0;//nbre Classe dans le tableau ,
-                               //mais aussi la position d'insertion
-      private int nbrePersonne=0;
     //Declaration des Tableaux
-    private Classe tabclasse[];
-    private Personne [] tabPersonne;
+    private ArrayList<Classe> tabClasse;
+    private ArrayList<Personne> tabPersonne;
 
     public Service(){
         //Creation du Tableau
-        tabclasse=new Classe[TAILLE];
-        tabPersonne=new Personne[TAILLE];
+        tabClasse=new ArrayList<Classe>();
+        tabPersonne=new ArrayList<Personne>();
 
     }
 
 
     public void creerClasse(Classe classe){
-        if(nbreClasse<TAILLE){
-            tabclasse[nbreClasse]=classe;
-            nbreClasse++;
-        }else{
-            System.out.println("Tableau Rempli");
-        }
-        
+            tabClasse.add(classe);       
     }
-    public void listerClasse(){
-        for(int i=0;i<nbreClasse;i++){
-            System.out.println(tabclasse[i].affiche());
+    public void listerClasses(){
+        for(Classe c: tabClasse){
+            System.out.println(c.affiche());
         }
         
     }
 
     public void  ajouterPersonne(Personne pers){
-        if(nbreClasse<TAILLE){
-            tabPersonne[nbrePersonne]=pers;
-            nbreClasse++;
-        }else{
-            System.out.println("Tableau Rempli");
-        }
+            tabPersonne.add(pers);
     }
 
     public void listerEudiantParClasse(){
        
-        for(Classe cl: tabclasse){
+        for(Classe cl: tabClasse){
             System.out.println("==========("+cl.getNom()+")==========");
-            cl.listerEtudiant();
+            cl.listeEtudiant();
             System.out.println("=================(Fin)===================");
             System.out.println();
         }
     }
 
     public void affecterEt(Etudiant e,int id){
-        e.affecter(tabclasse[id]);
-        tabclasse[id].addEtudiant(e);
+        e.affecter(tabClasse.get(id));
+        tabClasse.get(id).addEtudiant(e);
     }
 
     public void affecterPr(Professeur p,int id){
-        p.affecter(tabclasse[id]);
-        tabclasse[id].addProfesseur(p);
+        p.affecter(tabClasse.get(id));
+        tabClasse.get(id).addProfesseur(p);
     }
 
     //Uc 

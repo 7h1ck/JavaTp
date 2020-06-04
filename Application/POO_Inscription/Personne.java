@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+
 public abstract class Personne implements IInscription{
 
    //Auto généré

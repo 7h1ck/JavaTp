@@ -27,7 +27,7 @@ String choix;
 
             case "2":
 
-            service.listerClasse();
+            service.listerClasses();
             break;
 
             case "3":
@@ -49,7 +49,7 @@ String choix;
             service.ajouterPersonne(et);
 
             // Affectation
-            service.listerClasse();
+            service.listerClasses();
             System.out.println("Entrer l ID de la classe ");
               int  idClasse =clavier.nextInt();
               service.affecterEt(et,idClasse);

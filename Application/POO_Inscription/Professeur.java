@@ -1,10 +1,11 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Professeur extends Personne {
 
 
     private String matiere;
-    private Classe[] classes;
+    private ArrayList<Classe> classes;
 
     //Propriété navigationnelle
      
@@ -23,7 +24,7 @@ public class Professeur extends Personne {
           }
 
           public void affecter(Classe c){
-            this.classes[0] = c;
+            this.classes.add(c);
          }
    //Getters and Setters
       

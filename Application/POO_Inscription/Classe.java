@@ -55,7 +55,7 @@ public class Classe implements IInscription{
      }
    }
 
-   public void listerEtudiant(){
+   public void listeEtudiant(){
       for(int i=0;i<nbreEtudiant;i++){
           System.out.println(tabEtudiant[i].affiche());
       }
@@ -67,7 +67,7 @@ public class Classe implements IInscription{
 
     @Override
     public String affiche(){
-       return "Id: "+this.id+" Nom : "+nom;
+       return "Id: "+this.id+" Nom : "+this.nom;
     }
 
 }

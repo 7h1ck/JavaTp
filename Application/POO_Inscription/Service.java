@@ -8,8 +8,8 @@ public class Service {
 
     public Service(){
         //Creation du Tableau
-        tabClasse=new ArrayList<Classe>();
-        tabPersonne=new ArrayList<Personne>();
+        tabClasse=new ArrayList<>();
+        tabPersonne=new ArrayList<>();
 
     }
 
@@ -28,29 +28,48 @@ public class Service {
             tabPersonne.add(pers);
     }
 
-    public void listerEudiantParClasse(){
-       
+    public void listeAllEtudiant(){       
         for(Classe cl: tabClasse){
-            System.out.println("==========("+cl.getNom()+")==========");
+            System.out.println("==============("+cl.getNom()+")==========");
             cl.listeEtudiant();
             System.out.println("=================(Fin)===================");
             System.out.println();
         }
     }
 
-    public void affecterEt(Etudiant e,int id){
-        e.affecter(tabClasse.get(id));
-        tabClasse.get(id).addEtudiant(e);
+    public void affecterPersonne(Personne p,int id){
+        if (p instanceof Etudiant) {
+            ((Etudiant)p).affecter(tabClasse.get(id));
+            tabClasse.get(id).addEtudiant((Etudiant)p);
+            
+        } else {
+            ((Professeur)p).affecter(tabClasse.get(id));
+            tabClasse.get(id).addProfesseur((Professeur)p);
+            
+        }
     }
 
-    public void affecterPr(Professeur p,int id){
-        p.affecter(tabClasse.get(id));
-        tabClasse.get(id).addProfesseur(p);
-    }
 
+
+	public void listerProfesseurs() {
+        for(Personne p: tabPersonne){
+            if (p instanceof Professeur) {
+                System.out.println(p.affiche());
+                
+            }
+        }
+    }
+    
+    public ArrayList<Personne> getTabPersonne() {
+        return this.tabPersonne;
+	}
     //Uc 
+    public void listerEudiantsInClass(int id){
+        tabClasse.get(id).listeEtudiant();
+    }
 
-
-
+    public void listerProfesseursInClass(int id){
+        tabClasse.get(id).listeProfesseur();;
+    }
     
 }

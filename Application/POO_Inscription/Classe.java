@@ -1,22 +1,19 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Classe implements IInscription{
 
    //Auto généré
    protected static int gid=0;
     private int id;
     private String nom;
-    private Etudiant[] tabEtudiant;
-    private Professeur[] tabProfesseur;
-
-   
-      final int TAILLE=10;
-  
-     private int nbreEtudiant=0;
-     private int nbreProfesseur=0;
+    private ArrayList<Etudiant>tabEtudiant;
+    private ArrayList<Professeur>tabProfesseur;
  
     //Constructeur
     public Classe(){
-       tabEtudiant = new Etudiant[TAILLE];
-       tabProfesseur = new Professeur[TAILLE];
+       tabEtudiant = new ArrayList<>();
+       tabProfesseur = new ArrayList<>();
        Classe.gid++;
        this.id=Classe.gid;
 
@@ -24,8 +21,8 @@ public class Classe implements IInscription{
 
     public Classe(String nom){
        this.nom=nom;
-       tabEtudiant = new Etudiant[10];
-       tabProfesseur = new Professeur[10];
+       tabEtudiant = new ArrayList<>();
+       tabProfesseur = new ArrayList<>();
        Classe.gid++;
        this.id=Classe.gid;
    }
@@ -38,29 +35,28 @@ public class Classe implements IInscription{
 
    //UC
    public void addEtudiant(Etudiant etudiant){
-      if(nbreEtudiant<TAILLE){
-         tabEtudiant[nbreEtudiant]=etudiant;
-         nbreEtudiant++;
-     }else{
-         System.out.println("Tableau Rempli");
-     }
+         tabEtudiant.add(etudiant);
+
    }
 
    public void addProfesseur(Professeur professeur){
-      if(nbreEtudiant<TAILLE){
-         tabProfesseur[nbreProfesseur]=professeur;
-         nbreProfesseur++;
-     }else{
-         System.out.println("Tableau Rempli");
-     }
+         tabProfesseur.add(professeur);
+
    }
 
    public void listeEtudiant(){
-      for(int i=0;i<nbreEtudiant;i++){
-          System.out.println(tabEtudiant[i].affiche());
+      for(Etudiant e : tabEtudiant){
+          System.out.println(e.affiche());
       }
       
   }
+
+  public void listeProfesseur(){
+   for(Professeur p : tabProfesseur){
+       System.out.println(p.affiche());
+   }
+   
+}
    
 
    //redefinition de la methode affiche()

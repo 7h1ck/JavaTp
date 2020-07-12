@@ -4,20 +4,20 @@ public abstract class Personne implements IInscription{
 
    //Auto généré
     protected static int gid=0;
-   
+    
+    protected  int  id;
     protected  String nomComplet;
     protected  LocalDate dateNaiss;
     protected  int  age;
-    protected  int  id;
 
     public Personne (String nomComplet,
                LocalDate dateNaiss){
-   Personne.gid++;
-	this.id=Personne.gid;
+      Personne.gid++;
+	   this.id=Personne.gid;
       this.nomComplet=nomComplet;
       this.dateNaiss=dateNaiss;
      //Initialisé ID
-       this.age=calculAge();
+      this.age=calculAge();
 
     }
 
@@ -38,7 +38,7 @@ public abstract class Personne implements IInscription{
     }
 
    private int calculAge(){
-      return this.dateNaiss.getYear() - LocalDate.now().getYear();
+      return LocalDate.now().getYear() - this.dateNaiss.getYear();
    }
 
 }

@@ -15,7 +15,7 @@ public class Professeur extends Personne {
     //Constructeur
        //Par defaut
            public Professeur(){
-            this.classes = new ArrayList<Classe>() ;
+            this.classes = new ArrayList<>() ;
           }
       //Surcharge du Contructeur
          //Creer un Objet puis de l'initialiser
@@ -25,7 +25,7 @@ public class Professeur extends Personne {
               super(nomComplet,dateNaiss);
              this.matiere=matiere;
              this.anneEtu=anneEtu;
-            this.classes = new ArrayList<Classe>() ;
+            this.classes = new ArrayList<>() ;
 
           }
 

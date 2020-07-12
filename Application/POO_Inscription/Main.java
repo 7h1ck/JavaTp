@@ -21,7 +21,7 @@ String choix;
      LocalDate dateNaiss;
      Etudiant etudiant;
      Professeur professeur;
-     final String sms = "Entrer l ID de la classe";
+     final String sms = "Entrer l\'ID de la classe";
 
     do {
 
@@ -54,13 +54,13 @@ String choix;
                nomComplet =clavier.nextLine();
                System.out.println("Entrer le tuteur");
                tuteur = clavier.nextLine();
-               System.out.println("Entrer l annee d Etude");
+               System.out.println("Entrer l\'annee d Etude");
                clavier.nextInt();
                System.out.println("Entrer le jour de naissance");
                jour =clavier.nextInt();
                System.out.println("Entrer le mois de naissance");
                mois =clavier.nextInt();
-               System.out.println("Entrer le Anne de naissance");
+               System.out.println("Entrer l\'annee de naissance");
                annee =clavier.nextInt();
                dateNaiss = LocalDate.of(annee, mois, jour);
                etudiant = new Etudiant(nomComplet,dateNaiss,tuteur,annee);
@@ -71,6 +71,7 @@ String choix;
             System.out.println("Entrer l ID de la classe ");
               idClasse =clavier.nextInt();
               service.affecterPersonne(etudiant,idClasse-1);
+              clavier.nextLine();
             break;
             case "4":
             // Afectation Professeur
@@ -82,13 +83,13 @@ String choix;
                  nomComplet =clavier.nextLine();
                  System.out.println("Entrer la matiere");
                  final String matiere =clavier.nextLine();
-                 System.out.println("Entrer l annee d Etude");
+                 System.out.println("Entrer l\'annee d\'Etude");
                  clavier.nextInt();
                  System.out.println("Entrer le jour de naissance");
                  jour =clavier.nextInt();
                  System.out.println("Entrer le mois de naissance");
                  mois =clavier.nextInt();
-                 System.out.println("Entrer le Anne de naissance");
+                 System.out.println("Entrer l\'annee de naissance");
                  annee =clavier.nextInt();
                  dateNaiss = LocalDate.of(annee, mois, jour);
                  professeur = new Professeur(nomComplet,dateNaiss,matiere,annee);
@@ -96,7 +97,8 @@ String choix;
             service.listerClasses();
             System.out.println(sms);
             idClasse =clavier.nextInt();
-          service.affecterPersonne(professeur,idClasse-1);
+            service.affecterPersonne(professeur,idClasse-1);
+            clavier.nextLine();
               
             } else {
               // Afectation Professeur par id
@@ -104,11 +106,12 @@ String choix;
               System.out.println("Entre Id de la prof");
               final int id =clavier.nextInt();
               service.listerClasses();
-            System.out.println(sms);
-            idClasse =clavier.nextInt();
+              System.out.println(sms);
+              idClasse =clavier.nextInt();
+              clavier.nextLine();
             professeur = (Professeur)service.getTabPersonne().get(id-1);
             service.affecterPersonne(professeur,idClasse-1);
-              service.affecterPersonne(professeur,id-1);             
+              // service.affecterPersonne(professeur,id-1);             
             }
             
 
@@ -118,12 +121,14 @@ String choix;
             service.listerClasses();
             System.out.println(sms);
             idClasse = clavier.nextInt();
+            clavier.nextLine();
             service.listerEudiantsInClass(idClasse-1);
             break;
             case "6":
             service.listerClasses();
             System.out.println(sms);
             idClasse = clavier.nextInt();
+            clavier.nextLine();
             service.listerProfesseursInClass(idClasse-1);
             break;
 

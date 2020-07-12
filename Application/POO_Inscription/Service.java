@@ -69,7 +69,7 @@ public class Service {
     }
 
     public void listerProfesseursInClass(int id){
-        tabClasse.get(id).listeProfesseur();;
+        tabClasse.get(id).listeProfesseur();
     }
     
 }

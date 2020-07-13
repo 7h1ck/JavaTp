@@ -18,6 +18,7 @@ String choix;
      int jour;
      int mois;
      int idClasse;
+     int anneeEtude;
      LocalDate dateNaiss;
      Etudiant etudiant;
      Professeur professeur;
@@ -55,15 +56,15 @@ String choix;
                System.out.println("Entrer le tuteur");
                tuteur = clavier.nextLine();
                System.out.println("Entrer l\'annee d Etude");
-               clavier.nextInt();
+               anneeEtude = clavier.nextInt();
                System.out.println("Entrer le jour de naissance");
                jour =clavier.nextInt();
                System.out.println("Entrer le mois de naissance");
-               mois =clavier.nextInt();
+               mois = clavier.nextInt();
                System.out.println("Entrer l\'annee de naissance");
                annee =clavier.nextInt();
                dateNaiss = LocalDate.of(annee, mois, jour);
-               etudiant = new Etudiant(nomComplet,dateNaiss,tuteur,annee);
+               etudiant = new Etudiant(nomComplet,dateNaiss,tuteur,anneeEtude);
                service.ajouterPersonne(etudiant);
 
             // Affectation
@@ -84,7 +85,7 @@ String choix;
                  System.out.println("Entrer la matiere");
                  final String matiere =clavier.nextLine();
                  System.out.println("Entrer l\'annee d\'Etude");
-                 clavier.nextInt();
+                 anneeEtude = clavier.nextInt();
                  System.out.println("Entrer le jour de naissance");
                  jour =clavier.nextInt();
                  System.out.println("Entrer le mois de naissance");
@@ -92,7 +93,7 @@ String choix;
                  System.out.println("Entrer l\'annee de naissance");
                  annee =clavier.nextInt();
                  dateNaiss = LocalDate.of(annee, mois, jour);
-                 professeur = new Professeur(nomComplet,dateNaiss,matiere,annee);
+                 professeur = new Professeur(nomComplet,dateNaiss,matiere,anneeEtude);
               service.ajouterPersonne(professeur);
             service.listerClasses();
             System.out.println(sms);
@@ -111,7 +112,6 @@ String choix;
               clavier.nextLine();
             professeur = (Professeur)service.getTabPersonne().get(id-1);
             service.affecterPersonne(professeur,idClasse-1);
-              // service.affecterPersonne(professeur,id-1);             
             }
             
 

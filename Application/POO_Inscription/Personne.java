@@ -38,7 +38,11 @@ public abstract class Personne implements IInscription{
     }
 
    private int calculAge(){
-      return LocalDate.now().getYear() - this.dateNaiss.getYear();
+      int ag = LocalDate.now().getYear() - this.dateNaiss.getYear();
+      if (LocalDate.now().getMonthValue() < this.dateNaiss.getMonthValue() && LocalDate.now().getDayOfMonth() < this.dateNaiss.getDayOfMonth()) {
+         ag--;
+      }
+      return ag;
    }
 
 }
